@@ -1,0 +1,6 @@
+node_modules/
+.env
+.DS_Store
+
+# The assessment prompt itself — keep it out of the public repo
+*.pdf

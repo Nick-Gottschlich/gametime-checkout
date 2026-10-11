@@ -43,6 +43,11 @@ export class FakeInventoryService implements InventoryService {
 
   // --- Controls for tests and the demo ---
 
+  /** Everything still for sale, for the demo's listing picker. */
+  allListings(): Listing[] {
+    return [...this.listings.values()].map((listing) => ({ ...listing }));
+  }
+
   setPrice(listingId: string, priceCents: number) {
     const listing = this.listings.get(listingId);
     if (listing) listing.priceCents = priceCents;

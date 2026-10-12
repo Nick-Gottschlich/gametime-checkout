@@ -1,0 +1,373 @@
+:root {
+  --bg: #f6f6f7;
+  --surface: #ffffff;
+  --text: #16161a;
+  --muted: #6b6b76;
+  --border: #e3e3e8;
+  --accent: #0b6bcb;
+  --accent-text: #ffffff;
+  --good-bg: #e7f6ec;
+  --good-text: #17663a;
+  --warn-bg: #fff4e0;
+  --warn-text: #8a5300;
+  --urgent: #c4320a;
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.45;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--accent);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  display: grid;
+  gap: 16px;
+}
+
+.page--mobile {
+  max-width: 430px;
+  padding: 16px 16px 0;
+  min-height: 100vh;
+  align-content: start;
+}
+
+/* ---------- Buttons ---------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-text);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.button--secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--border);
+}
+
+/* ---------- Listings ---------- */
+
+.listings {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.card__end {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.start__error {
+  color: var(--urgent);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* ---------- Checkout ---------- */
+
+.checkout {
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  min-height: 260px; /* matches the skeleton so streaming in doesn't shift the page */
+  align-content: start;
+}
+
+.checkout--mobile {
+  padding: 16px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.checkout__event h1 {
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.price {
+  display: block;
+  font-size: 24px;
+}
+
+.price-change {
+  font-size: 20px;
+}
+
+.price-change s {
+  color: var(--muted);
+}
+
+.timer strong {
+  font-variant-numeric: tabular-nums;
+}
+
+.timer--urgent {
+  color: var(--urgent);
+}
+
+.paybar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* On a phone the action sits at the bottom of the screen, within thumb reach. */
+.checkout--mobile .paybar {
+  position: sticky;
+  bottom: 0;
+  margin: 0 -16px;
+  padding: 16px;
+  background: var(--surface);
+  box-shadow: 0 -4px 12px rgb(0 0 0 / 0.06);
+}
+
+.checkout--mobile .state .button {
+  width: 100%;
+}
+
+.banner {
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.banner--good {
+  background: var(--good-bg);
+  color: var(--good-text);
+}
+
+.banner--warn {
+  background: var(--warn-bg);
+  color: var(--warn-text);
+}
+
+.state {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+  padding: 16px 0;
+}
+
+.state--good h2 {
+  color: var(--good-text);
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.handoff {
+  display: grid;
+  gap: 4px;
+  padding: 16px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  font-size: 14px;
+}
+
+.deeplink-chip {
+  justify-self: start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.skeleton {
+  border-radius: 6px;
+  background: var(--border);
+  height: 14px;
+  width: 30%;
+}
+
+.skeleton--title {
+  height: 28px;
+  width: 70%;
+}
+
+.skeleton--bar {
+  height: 44px;
+  width: 100%;
+  margin-top: auto;
+}
+
+/* ---------- Demo page ---------- */
+
+.demo {
+  padding: 16px;
+  display: grid;
+  gap: 16px;
+}
+
+.controls {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.controls__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.controls__head h1 {
+  font-size: 18px;
+}
+
+.controls__groups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.controls h2 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.controls button {
+  margin: 0 6px 6px 0;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.controls button[aria-pressed="true"] {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.controls__log {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.demo__surfaces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.demo__surfaces figure {
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.demo__surfaces figcaption {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.frame {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+
+.frame--desktop {
+  width: 760px;
+  max-width: calc(100vw - 32px);
+  height: 640px;
+}
+
+.frame--phone {
+  width: 390px;
+  height: 640px;
+  border: 10px solid #1d1d22;
+  border-radius: 36px;
+}

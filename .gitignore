@@ -1,6 +1,7 @@
 node_modules/
 .env
 .DS_Store
+.claude/
 
 # The assessment prompt itself — keep it out of the public repo
 *.pdf
